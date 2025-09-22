@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Shield, User, Lock, CheckCircle, ArrowRight, Menu, X, Globe, Phone, Mail } from 'lucide-react';
 import logo from '../images/logo_nz.png'
+import {Link, useNavigate} from 'react-router'
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -23,12 +24,16 @@ function Home() {
 
             <div className="hidden md:flex items-center space-x-4">
               <button className="text-orange-700 hover:text-orange-700 font-medium" onClick={() => {
-                alert("sign in")
+                
               }}>
-                Sign In
+             <Link to="/realme">
+             Sign in
+             </Link>
+                
               </button>
               <button className="bg-orange-600 text-orange-100 px-4 py-2 rounded-md hover:bg-orange-700 transition-colors">
-                Create Account
+                <Link to='/register' className='text-white-500'>Create Account</Link>
+                
               </button>
             </div>
 
@@ -72,8 +77,12 @@ function Home() {
               banking, and other trusted websites with one verified digital identity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center">
-                Get Started
+              <button className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center"
+              >
+                <a href="/realme">
+                 Get Started
+                </a>
+               
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
               <button className="border-2 border-orange-600 text-gray-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-50 transition-colors">
