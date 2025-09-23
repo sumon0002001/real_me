@@ -1,28 +1,67 @@
 import React, { useState } from 'react';
 import { Lock, Eye, EyeOff, AlertCircle, CheckCircle } from 'lucide-react';
+import {Link, useNavigate} from 'react-router'
+import { ToastContainer } from 'react-toastify';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { handleError, handleSuccess } from '../utils';
 
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+    const {  email, password } = formData;
+      if ( !email || !password) {
+                return handleError('name, email and password are required')
+            }
+    try {
+                const url = "http://localhost:8080/auth/login"
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                const result = await response.json();
+                 const { success, message, error } = result;
+                 if (success) {
+                    handleSuccess(message);
+                    setTimeout(() => {
+                        navigate('/visaview')
+                    }, 1000)
+                } else if (error) {
+                    const details = error?.details[0].message;
+                    handleError(details);
+                } else if (!success) {
+                    handleError(message);
+                }
+                console.log(result)
+                
+            } catch (error) {
+                handleError(error)
+            }
+          
     // Simulate authentication delay
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: any) => {
+     const {name, value} = e.target;
+     console.log(name, value)
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -46,16 +85,16 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
-          Username
+          Email
           </label>
           <input
             type="text"
-            id="username"
-            name="username"
-            value={formData.username}
+            id="email"
+            name="email"
+            value={formData.email}
             onChange={handleInputChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-            placeholder="Enter your username"
+            placeholder="Enter your email"
             required
           />
         </div>
@@ -76,7 +115,7 @@ export default function LoginForm() {
               required
             />
             <button
-              type="button"
+            type='submit'
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
             >
@@ -118,11 +157,10 @@ export default function LoginForm() {
       <div className="mt-6 pt-6 border-t border-orange-200">
         <p className="text-center text-sm text-orange-600">
           Don't have a RealMe login?{' '}
-          <a href="#" className="text-orange-600 hover:text-orange-800 font-medium transition-colors">
-            Create an account
-          </a>
+         <Link to='/register' className='text-blue-500'>Login</Link>
         </p>
       </div>
+      <ToastContainer />
     </div>
     
 <Footer/>
