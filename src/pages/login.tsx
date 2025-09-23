@@ -34,9 +34,11 @@ export default function LoginForm() {
                     body: JSON.stringify(formData)
                 })
                 const result = await response.json();
-                 const { success, message, error } = result;
+                 const { success, message, jwtToken, name, error } = result;
                  if (success) {
                     handleSuccess(message);
+                    localStorage.setItem('token', jwtToken)
+                    localStorage.setItem('loggedInUser', name)
                     setTimeout(() => {
                         navigate('/visaview')
                     }, 1000)
