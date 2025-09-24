@@ -1,6 +1,7 @@
 import React from 'react';
 import { Shield, Menu } from 'lucide-react';
 import logo from '../images/logo_nz.png'
+import {Link, useNavigate} from 'react-router'
 
 export default function Header() {
   return (
@@ -10,17 +11,24 @@ export default function Header() {
           <div className="flex items-center space-x-3">
             
             <div>
-              <img src={logo} alt="logo" width={200} height={200} />
+              <Link to="/">
+                <img src={logo} alt="logo" width={200} height={200} />
+              </Link>
+            
             </div>
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#" className="text-orange-600 hover:text-gray-900 text-sm font-medium transition-colors">
-              Help
-            </a>
-            <a href="#" className="text-orange-600 hover:text-gray-900 text-sm font-medium transition-colors">
-              About RealMe
-            </a>
+            <button  className="text-orange-600 hover:text-gray-900 text-sm font-medium transition-colors">
+            <Link to="/">
+            Sign out
+            </Link>  
+            </button>
+            <button className="text-orange-600 hover:text-gray-900 text-sm font-medium transition-colors">
+            <Link to="/">
+             About RealMe
+            </Link> 
+            </button>
             <button className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100">
               <Menu className="w-5 h-5" />
             </button>
