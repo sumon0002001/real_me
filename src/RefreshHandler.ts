@@ -12,7 +12,7 @@ function RefrshHandler({ setIsAuthenticated }) {
                 location.pathname === '/login' ||
                 location.pathname === '/signup'
             ) {
-                navigate('/visaview', { replace: false });
+                navigate('/', { replace: false });
             }
         }
     }, [location, navigate, setIsAuthenticated])

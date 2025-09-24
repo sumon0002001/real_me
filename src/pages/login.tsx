@@ -25,7 +25,7 @@ export default function LoginForm() {
                 return handleError('name, email and password are required')
             }
     try {
-                const url = "http://localhost:8080/auth/login"
+                const url = "https://backend-six-self-25.vercel.app/auth/login"
                 const response = await fetch(url, {
                     method: "POST",
                     headers: {
