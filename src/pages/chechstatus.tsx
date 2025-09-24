@@ -29,9 +29,9 @@ const Checkstatu: React.FC = () => {
     'ETA123456789': {
       applicationNumber: 'ETA123456789',
       status: 'approved',
-      submissionDate: '15 March 2024',
-      lastUpdated: '18 March 2024',
-      applicantName: 'John Smith',
+      submissionDate: '20 September 2025',
+      lastUpdated: '24 September 2024',
+      applicantName: 'Md Khallil ullah',
       etaNumber: 'NZ123456789'
     },
     'ETA987654321': {
