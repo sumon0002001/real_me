@@ -6,10 +6,10 @@ import Footer from '../components/Footer';
 interface StatusResult {
   applicationNumber: string;
   status: 'approved' | 'pending' | 'under-review' | 'declined';
-  submissionDate: string;
-  lastUpdated: string;
+  approveDate: string;
+  validTill: string;
   applicantName: string;
-  etaNumber?: string;
+  clientNumber?: string;
 }
 
 const Checkstatu: React.FC = () => {
@@ -26,26 +26,26 @@ const Checkstatu: React.FC = () => {
     }, [])
 
   const mockResults: { [key: string]: StatusResult } = {
-    'ETA123456789': {
-      applicationNumber: 'ETA123456789',
+    'E6053392': {
+      applicationNumber: 'E6053392',
       status: 'approved',
-      submissionDate: '20 September 2025',
-      lastUpdated: '24 September 2024',
-      applicantName: 'Md Khallil ullah',
-      etaNumber: 'NZ123456789'
+      approveDate: '02 October 2025',
+      validTill: '01 October 2027',
+      applicantName: 'Hasan Ahmed',
+      clientNumber: '80158551'
     },
     'ETA987654321': {
       applicationNumber: 'ETA987654321',
       status: 'pending',
-      submissionDate: '20 March 2024',
-      lastUpdated: '20 March 2024',
+      approveDate: '20 March 2024',
+      validTill: '20 March 2024',
       applicantName: 'Jane Doe'
     },
     'ETA555666777': {
       applicationNumber: 'ETA555666777',
       status: 'under-review',
-      submissionDate: '10 March 2024',
-      lastUpdated: '22 March 2024',
+      approveDate: '10 March 2024',
+      validTill: '22 March 2024',
       applicantName: 'Michael Johnson'
     }
   };
@@ -138,7 +138,7 @@ const Checkstatu: React.FC = () => {
               id="applicationNumber"
               value={applicationNumber}
               onChange={(e) => setApplicationNumber(e.target.value)}
-              placeholder="e.g., ETA123456789"
+              placeholder="e.g., E23333339"
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
             />
           </div>
@@ -194,7 +194,7 @@ const Checkstatu: React.FC = () => {
         </button>
 
         <p className="text-sm text-gray-600 mt-4">
-          * Required fields. For testing, try application number: ETA123456789, ETA987654321, or ETA555666777
+          * Required fields. For testing, try application number: E123456789, ETA987654321, or ETA555666777
         </p>
       </form>
 
@@ -222,17 +222,17 @@ const Checkstatu: React.FC = () => {
                 <p className="font-medium">{result.applicantName}</p>
               </div>
               <div>
-                <p className="text-gray-600">Submission Date</p>
-                <p className="font-medium">{result.submissionDate}</p>
+                <p className="text-gray-600">Approval Date</p>
+                <p className="font-medium">{result.approveDate}</p>
               </div>
               <div>
-                <p className="text-gray-600">Last Updated</p>
-                <p className="font-medium">{result.lastUpdated}</p>
+                <p className="text-gray-600">Valid</p>
+                <p className="font-medium">{result.validTill}</p>
               </div>
-              {result.etaNumber && (
+              {result.clientNumber && (
                 <div className="md:col-span-2">
                   <p className="text-gray-600">eTA Number</p>
-                  <p className="font-medium text-green-600">{result.etaNumber}</p>
+                  <p className="font-medium text-green-600">{result.clientNumber}</p>
                 </div>
               )}
             </div>
