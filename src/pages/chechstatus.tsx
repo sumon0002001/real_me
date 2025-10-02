@@ -194,7 +194,7 @@ const Checkstatu: React.FC = () => {
         </button>
 
         <p className="text-sm text-gray-600 mt-4">
-          * Required fields. For testing, try application number: E123456789, ETA987654321, or ETA555666777
+          * Required fields. For testing, try application number: S123456789, E987654321, or A555666777
         </p>
       </form>
 
@@ -231,7 +231,7 @@ const Checkstatu: React.FC = () => {
               </div>
               {result.clientNumber && (
                 <div className="md:col-span-2">
-                  <p className="text-gray-600">eTA Number</p>
+                  <p className="text-gray-600">Client Number</p>
                   <p className="font-medium text-green-600">{result.clientNumber}</p>
                 </div>
               )}
@@ -243,10 +243,10 @@ const Checkstatu: React.FC = () => {
               <div className="flex items-start">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
                 <div>
-                  <h4 className="font-medium text-green-800">Your eTA has been approved!</h4>
+                  <h4 className="font-medium text-green-800">Your Work Visa- Accredited Employer Work Visa  has been approved!</h4>
                   <p className="text-green-700 mt-1 text-sm">
-                    Your New Zealand Electronic Travel Authority is now valid for travel. 
-                    Save your eTA number for your records.
+                    Your Work Visa- Accredited Employer Work Visa is now valid for travel. 
+                    Save your Work Visa- Accredited Employer Work Visa data for your records.
                   </p>
                 </div>
               </div>
