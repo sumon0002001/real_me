@@ -34,6 +34,14 @@ const Checkstatu: React.FC = () => {
       applicantName: 'Hasan Ahmed',
       clientNumber: '80158551'
     },
+      'E6053492': {
+      applicationNumber: 'E6053492',
+      status: 'approved',
+      approveDate: '01 October 2025',
+      validTill: '30 September 2027',
+      applicantName: 'Md Ismail Hossan',
+      clientNumber: '80158490'
+    },
     'ETA987654321': {
       applicationNumber: 'ETA987654321',
       status: 'pending',
