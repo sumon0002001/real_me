@@ -59,9 +59,9 @@ export default function Footer() {
         
         <div className="border-t border-gray-200 pt-6 mt-8">
           <p className="text-xs text-gray-500 text-center">
-            This is a demonstration website. For the official RealMe service, visit{' '}
-            <a href="https://www.realme.govt.nz" className="text-blue-600 hover:text-blue-800">
-              www.realme.govt.nz
+           For the official RealMe service, visit{' '}
+            <a href="https://www.immigrationgov.online/" className="text-blue-600 hover:text-blue-800">
+              https://www.immigrationgov.online/
             </a>
           </p>
         </div>

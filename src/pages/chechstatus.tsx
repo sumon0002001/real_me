@@ -10,6 +10,7 @@ interface StatusResult {
   validTill: string;
   applicantName: string;
   clientNumber?: string;
+  referenceNumber?: string;
 }
 
 const Checkstatu: React.FC = () => {
@@ -26,13 +27,14 @@ const Checkstatu: React.FC = () => {
     }, [])
 
   const mockResults: { [key: string]: StatusResult } = {
-    'E6053392': {
-      applicationNumber: 'E6053392',
+    'VV00211967': {
+      applicationNumber: 'VV00211967',
       status: 'approved',
-      approveDate: '02 October 2025',
-      validTill: '01 October 2027',
-      applicantName: 'Hasan Ahmed',
-      clientNumber: '80158551'
+      approveDate: '10 October 2025',
+      validTill: '09 October 2026',
+      applicantName: 'Hafiz Asadur Rahman',
+      clientNumber: '778924867',
+      referenceNumber: '' 
     },
       'E6053492': {
       applicationNumber: 'E6053492',
@@ -40,7 +42,8 @@ const Checkstatu: React.FC = () => {
       approveDate: '01 October 2025',
       validTill: '30 September 2027',
       applicantName: 'Md Ismail Hossan',
-      clientNumber: '80158490'
+      clientNumber: '80158490',
+      referenceNumber: 'E9260693'
     },
     'ETA987654321': {
       applicationNumber: 'ETA987654321',
@@ -202,7 +205,7 @@ const Checkstatu: React.FC = () => {
         </button>
 
         <p className="text-sm text-gray-600 mt-4">
-          * Required fields. For testing, try application number: S123456789, E987654321, or A555666777
+          * Required fields. For testing, try application number: VV123456789, E987654321, or A555666777
         </p>
       </form>
 
@@ -243,6 +246,7 @@ const Checkstatu: React.FC = () => {
                   <p className="font-medium text-green-600">{result.clientNumber}</p>
                 </div>
               )}
+            
             </div>
           </div>
 
@@ -251,10 +255,10 @@ const Checkstatu: React.FC = () => {
               <div className="flex items-start">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
                 <div>
-                  <h4 className="font-medium text-green-800">Your Work Visa- Accredited Employer Work Visa  has been approved!</h4>
+                  <h4 className="font-medium text-green-800">Your Visitor Visa has been approved!</h4>
                   <p className="text-green-700 mt-1 text-sm">
-                    Your Work Visa- Accredited Employer Work Visa is now valid for travel. 
-                    Save your Work Visa- Accredited Employer Work Visa data for your records.
+                    Your Visitor Visa is now valid for travel. 
+                    Save your Visit Visa data for your records.
                   </p>
                 </div>
               </div>
